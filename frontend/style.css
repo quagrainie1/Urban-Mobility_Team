@@ -1,12 +1,84 @@
-body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
-h1, h2 { color: #333; }
-.cards { display: flex; gap: 15px; margin-bottom: 20px; }
-.card { background: white; padding: 15px; border-radius: 6px; flex: 1; text-align: center; }
-.card span { display: block; font-size: 24px; font-weight: bold; }
-#map { height: 450px; }
-table { border-collapse: collapse; width: 100%; background: white; }
-th, td { border: 1px solid #ddd; padding: 6px; text-align: left; }
-th { background: #eee; cursor: pointer; }
-tr:hover { background: #f0f8ff; }
-#filters input, #filters select { margin: 3px; }
-#detail { background: white; padding: 10px; margin-top: 10px; white-space: pre; }
+/* main page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+  background-color: #f2f2f2;
+}
+
+h1 {
+  background-color: #f7c600;
+  color: black;
+  padding: 10px;
+}
+
+h2 {
+  color: #333;
+  border-bottom: 2px solid #f7c600;
+}
+
+/* summary boxes at the top */
+.cards {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.card {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  flex: 1;
+  text-align: center;
+}
+
+.card span {
+  display: block;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+/* filters */
+#filters {
+  margin-bottom: 15px;
+}
+
+#filters input, #filters select, #filters button {
+  margin: 3px;
+  padding: 3px;
+}
+
+/* map */
+#map {
+  height: 450px;
+  border: 1px solid #ccc;
+}
+
+/* trips table */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  background-color: white;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 5px;
+}
+
+th {
+  background-color: #ddd;
+  cursor: pointer;
+}
+
+tr:hover {
+  background-color: #ffffcc;
+}
+
+/* box that shows one trip */
+#detail {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-top: 10px;
+  white-space: pre;
+}
