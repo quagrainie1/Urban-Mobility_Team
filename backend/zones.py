@@ -19,15 +19,15 @@ def read_polygons(path):
         if zid not in polys:
             polys[zid] = []
 
-            pts = shp.points
-            bounds = list(shp.parts) + [len(pts)]
-            for a, b in zip(bounds, bounds[1:]):
-                xs, ys = zip(*pts[a:b])  
-                lons, lats = to_wgs84.transform(xs, ys)
-                ring = []
-                for lon, lat in zip(lons, lats):
-                    ring.append([round(lon, 5), round(lat, 5)])
-                polys[zid].append([ring])
+        pts = shp.points
+        bounds = list(shp.parts) + [len(pts)]
+        for a, b in zip(bounds, bounds[1:]):
+            xs, ys = zip(*pts[a:b])  
+            lons, lats = to_wgs84.transform(xs, ys)
+            ring = []
+            for lon, lat in zip(lons, lats):
+                ring.append([round(lon, 5), round(lat, 5)])
+            polys[zid].append([ring])
 
     return polys
 

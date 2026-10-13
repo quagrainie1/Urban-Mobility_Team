@@ -1,0 +1,12 @@
+body { font-family: Arial, sans-serif; margin: 20px; background: #f5f5f5; }
+h1, h2 { color: #333; }
+.cards { display: flex; gap: 15px; margin-bottom: 20px; }
+.card { background: white; padding: 15px; border-radius: 6px; flex: 1; text-align: center; }
+.card span { display: block; font-size: 24px; font-weight: bold; }
+#map { height: 450px; }
+table { border-collapse: collapse; width: 100%; background: white; }
+th, td { border: 1px solid #ddd; padding: 6px; text-align: left; }
+th { background: #eee; cursor: pointer; }
+tr:hover { background: #f0f8ff; }
+#filters input, #filters select { margin: 3px; }
+#detail { background: white; padding: 10px; margin-top: 10px; white-space: pre; }
