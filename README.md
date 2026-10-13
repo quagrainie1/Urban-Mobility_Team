@@ -1,6 +1,6 @@
-# Urban Mobility – NYC Taxi Dashboard (Team)
+# Urban Mobility – NYC Taxi Dashboard (Team 5)
 
-## Data pipeline (Person 1)
+## Data pipeline (Eric Quagrainie)
 
 ### 1. Install
 ```
