@@ -1,0 +1,7 @@
+venv/
+_pycache_/
+*._pycache_
+
+dat/yellow_tripdata*
+data/clean_trips.parquet
+database/taxi.databaselogs/
