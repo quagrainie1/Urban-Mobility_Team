@@ -48,3 +48,7 @@ Every removed row is saved in `logs/excluded_records.csv` with a `reason` column
 Assumptions: missing or 0 passengers counted as 1; unknown rate code set to 99; unknown payment type set to 5 (Unknown); "N/A" borough/zone shown as "Unknown".
 
 Derived columns: `duration_min`, `avg_speed_mph`, `fare_per_mile`, `pickup_hour`.
+
+### Ready-made database
+Instead of running the three scripts, download taxi.db from Google Drive and save it as `database/taxi.db`:
+https://drive.google.com/file/d/1WjSs7FqdrTCP6m_IcmjaSLiBE9lKAhoT/view?usp=sharing
