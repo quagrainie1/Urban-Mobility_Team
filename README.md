@@ -5,6 +5,7 @@
 - 📄 **Technical report:** https://docs.google.com/document/d/1UlUa6fpXzSfN7bVFvAnV0NbCPSVVVbMt/edit?usp=sharing&ouid=107451420785341530139&rtpof=true&sd=true
 - 🎥 **Demo video:** https://drive.google.com/file/d/12MqG4yV5wkoaqsP-0CofeNzroZr7idyA/view?usp=drivesdk
 - 🗄️ **Database (`taxi.db`):** https://drive.google.com/file/d/1WjSs7FqdrTCP6m_IcmjaSLiBE9lKAhoT/view?usp=sharing
+- 📋 **Team task sheet:** https://docs.google.com/spreadsheets/d/1T7cVCOmTJQAJ7zTXjVJEGfDMyerL6sX9hO_09_UxPqE/edit?gid=0#gid=0
 
 A full-stack app that cleans one month of New York City yellow-taxi trips (January 2019), stores them in a relational database, serves them through a Flask API and shows them on an interactive web dashboard.
 
