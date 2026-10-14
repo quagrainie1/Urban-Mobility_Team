@@ -6,3 +6,4 @@ database/taxi.db
 data/sample.parquet
 logs/
 .DS_Store
+.vscode/

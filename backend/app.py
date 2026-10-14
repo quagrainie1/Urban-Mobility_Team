@@ -85,7 +85,6 @@ def trips():
     if args.get("borough"):
         sql+= " AND z1.borough = ?"
         params.append(args.get("borough"))
-    jsonify(query(sql, params))
 
     sort = args.get("sort", "pickup_ts")
     if sort not in ["pickup_ts", "trip_distance","duration_min","fare_amount"]:
