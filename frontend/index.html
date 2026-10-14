@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8"
+    <title>NYC Taxi Dashboard</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <h1>NYC Yellow Taxi Dashboard</h1>
+
+    <div class="cards">
+      <div class="card">Trips <span id="c-trips"></span></div>
+      <div class="card">Average fare <span id="c-fare"></span></div>
+      <div class="card">Average distance <span id="c-dist"></span></div>
+      <div class="card">Average duration <span id="c-dur"></span></div>
+    </div>
+
+    <h2>Pickups by zone</h2>
+    <div id="map"></div>
+
+    <h2>Trips by hour</h2>
+    <canvas id="hourChart"></canvas>
+
+    <h2>Top 10 busiest routes</h2>
+    <table id="routes">
+      <thead><tr><th>Pickup zone</th><th>Dropoff zone</th><th>Trips</th></tr></thead>
+      <tbody></tbody>
+    </table>
+
+    
+    <h2>Explore trips</h2>
+    <div id="filters"></div>
+    <div id="table-area"></div>
+    <div id="detail">Click a row to see its details.</div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+    <script src="charts.js"></script>
+    <script src="table.js"></script>
+  </body>
+</html>
