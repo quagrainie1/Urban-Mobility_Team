@@ -1,11 +1,12 @@
 import json
 import sqlite3
+import os
 from flask import Flask, request, jsonify
 from algo import top_k_routes
 
 
 app = Flask(__name__, static_folder="../frontend", static_url_path="")
-DB = "database/taxi.db"
+DB = os.path.join(os.path.dirname(__file__), "../database/taxi.db")
 
 def query(sql, params=()):
     conn = sqlite3.connect(DB)
@@ -22,19 +23,17 @@ def home():
 @app.route("/api/summary")
 def summary():
     rows = query("SELECT COUNT(*) AS trips, AVG(fare_amount) AS avg_fare, "
-                 "AVG(trip_distance) AS avg_distance, AVG(duration_min) AS avg_duration FROM trips")
+                "AVG(trip_distance) AS avg_distance, AVG((strftime('%s', dropoff_ts) - strftime('%s', pickup_ts))/60.0) AS avg_duration FROM trips")
     return jsonify(rows[0])
 
 @app.route("/api/hourly")
 def hourly():
-    return jsonify(query("SELECT pickup_hour AS hour, COUNT(*) AS trips FROM trips "
-                         "GROUP BY pickup_hour ORDER BY pickup_hour"))
+    return jsonify(query("SELECT strftime('%H', pickup_ts) AS hour, COUNT(*) AS trips FROM trips GROUP BY hour ORDER BY hour"))
 
 @app.route("/api/zones")
 def zones():
-    rows = query("SELECT z.zone_name, z.borough, z.geometry, COUNT(t.trip_id) AS trips "
-                 "FROM zones z LEFT JOIN trips t ON t.pu_zone_id = z.location_id "
-                 "GROUP BY z.location_id")
+    rows = query("SELECT pu_zone_id AS zone_name, COUNT(*) AS trips FROM trips GROUP BY pu_zone_id ORDER BY trips DESC LIMIT 20")
+    return jsonify(rows)
     features = []
     for r in rows:
          if r["geometry"]:
@@ -50,11 +49,11 @@ def top_routes():
     top = top_k_routes(pairs, 10)
     conn.close()
     names = {}
-    for z in query("SELECT location_id, zone_name FROM zones"):
-        names[z["location_id"]] = z["zone_name"]
+    for z in query("SELECT LocationID, Zone FROM zones"):
+        names[z["LocationID"]] = z["Zone"]
     result = []
     for (pu, do), count in top:
-        result.append({"pickup": names[pu], "dropoff": names[do], "trips":count})
+        result.append({"pickup": names.get(pu, pu), "dropoff": names.get(do, do), "trips":count})
     return jsonify(result)
 
 @app.route("/api/trips")
