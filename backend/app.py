@@ -49,8 +49,8 @@ def top_routes():
     top = top_k_routes(pairs, 10)
     conn.close()
     names = {}
-    for z in query("SELECT LocationID, Zone FROM zones"):
-        names[z["LocationID"]] = z["Zone"]
+    for z in query("SELECT location_id, zone_name FROM zones"):
+        names[z["location_id"]] = z["zone_name"]
     result = []
     for (pu, do), count in top:
         result.append({"pickup": names.get(pu, pu), "dropoff": names.get(do, do), "trips":count})
