@@ -53,7 +53,7 @@ def top_routes():
         names[z["location_id"]] = z["zone_name"]
     result = []
     for (pu, do), count in top:
-        result.append({"pickup": names.get(pu, pu), "dropoff": names.get(do, do), "trips":count})
+        result.append({"pickup": names.get(pu, pu), "dropoff": names[do], "trips":count})
     return jsonify(result)
 
 @app.route("/api/trips")
